@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Poiret One
+- Font Author: Copyright 2011 The Poiret One Project Authors (https://github.com/alexeiva/poiretone)
+- Font Source: https://fonts.gstatic.com/s/poiretone/v16/UqyVK80NJXN4zfRgbdfbk5lWVscxdKE.ttf
+- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))
