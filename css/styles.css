@@ -112,56 +112,28 @@ h2::after { content: " "; border: solid 2px #3dc9b3; display: block; width: 35px
 Navigation
 ========================================================================== */
 
-/* Updated Navigation for transparent effect without rounded corners */
+/* Navbar Styling */
 nav {
-    background: rgba(255, 255, 255, 0.1); /* Transparent white */
-    backdrop-filter: blur(10px); /* Apply the blur effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari */
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: rgba(50, 50, 50, 0.9); /* Adjust the color to your desired shade */
+    backdrop-filter: blur(5px); /* Add some blur to give it depth */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Optional: Adds a shadow effect */
     padding: 20px 0;
-    position: fixed; /* Keep the navbar at the top */
+    position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000; /* Ensure the navbar is on top of other elements */
-    transition: all 0.3s ease; /* Smooth transition */
-}
-
-/* Navbar Menu Styles */
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* Align items horizontally */
-    justify-content: flex-end; /* Align to the right */
-    margin: 0;
-}
-
-nav ul li {
-    padding: 0 20px;
-    transition: all 0.5s ease;
-    display: inline-block;
+    z-index: 1000;
 }
 
 nav ul li a {
-    color: rgba(255, 255, 255, 0.8); /* White text color */
-    font-size: 1.2rem; /* Adjust the font size */
+    color: rgba(255, 255, 255, 0.9); /* Keep text white */
+    font-size: 1.4rem; /* Make the font bigger */
     transition: all 0.3s ease;
 }
 
 nav ul li a:hover, nav ul li a:focus {
-    color: rgba(255, 255, 255, 1); /* Change color on hover */
+    color: #ffffff; /* Keep font color white on hover */
     font-weight: bold;
 }
-
-.navbar-fixed {
-    position: fixed; /* Ensures the navbar stays at the top on scroll */
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Make sure the content below the navbar is not hidden by it */
-body {
-    padding-top: 80px; /* Adjust this based on your navbar height */
 }
 
 /* Mobile Menu Styles */
@@ -200,53 +172,7 @@ Hero Section
     letter-spacing: 1px;
 }
 
-.learn-more-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 180px;
-    height: 50px;
-    border-radius: 5px;
-    background: transparent;
-    overflow: hidden;
-    transition: all 0.3s ease-in;
-}
-
-.learn-more-btn:hover {
-    transform: translateY(5px);
-}
-
-.learn-more-btn:before {
-    content: "";
-    position: absolute;
-    background-image: conic-gradient(
-        transparent 10deg,
-        rgba(168, 239, 255, 1),
-        90deg,
-        transparent 170deg
-    );
-    width: 200%;
-    height: 500%;
-    animation: rotate 3s linear infinite;
-}
-
-.learn-more-btn:after {
-    content: "Projects"; /* Updated text */
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 170px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
-    color: #fff;
-    font-size: clamp(0.9rem, 3vw, 1.2rem);
-    border-radius: 5px;
-
-	/* Button Styling for the blue gradient effect */
+/* Button Styling for Sparkle Effect */
 .btn {
     position: relative;
     display: flex;
@@ -257,37 +183,16 @@ Hero Section
     border-radius: 5px;
     background: transparent;
     overflow: hidden;
+    color: #fff;
+    font-size: 1.2rem;
     transition: all 0.3s ease-in;
 }
 
-.btn:hover {
-    transform: translateY(5px);
+.btn:hover, .btn:active {
+    background: rgba(255, 255, 255, 0.2); /* Light white background on hover */
 }
 
-.light::before {
-    content: "";
-    position: absolute;
-    background-image: conic-gradient(
-        transparent 10deg,
-        rgba(168, 239, 255, 1),
-        90deg,
-        transparent 170deg
-    );
-    width: 200%;
-    height: 500%;
-    animation: rotate 3s linear infinite;
-}
-
-@keyframes rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.light:after {
+.btn:after {
     content: "Projects"; /* Button text */
     position: absolute;
     display: flex;
@@ -295,15 +200,38 @@ Hero Section
     align-items: center;
     width: 170px;
     height: 40px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
+    background: transparent;
     color: #fff;
     font-size: clamp(0.9rem, 3vw, 1.2rem);
     border-radius: 5px;
 }
+
+/* White sparkle animation */
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 10%, transparent 10%);
+    background-size: 10px 10px;
+    background-repeat: repeat;
+    animation: sparkle 2s linear infinite;
 }
-/
+
+@keyframes sparkle {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.btn:hover::before {
+    animation-play-state: running;
+}
 /* ==========================================================================
 Intro Section
 ========================================================================== */
