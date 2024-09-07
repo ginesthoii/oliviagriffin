@@ -201,22 +201,108 @@ Hero Section
 }
 
 .learn-more-btn {
-    background: rgba(61, 201, 179, 1);
-    padding: 20px 40px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
     border-radius: 5px;
-    color: #fff;
-    text-transform: uppercase;
-    margin: 60px 0 0;
-    font-weight: bold;
-    box-shadow: 0px 3px 0px 0px #309383;
-    transition: all 0.5s ease;
+    background: transparent;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
 }
 
 .learn-more-btn:hover {
-    background: rgba(61, 201, 179, 0.6);
-    color: #fff;
+    transform: translateY(5px);
 }
 
+.learn-more-btn:before {
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(
+        transparent 10deg,
+        rgba(168, 239, 255, 1),
+        90deg,
+        transparent 170deg
+    );
+    width: 200%;
+    height: 500%;
+    animation: rotate 3s linear infinite;
+}
+
+.learn-more-btn:after {
+    content: "Projects"; /* Updated text */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    color: #fff;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    border-radius: 5px;
+
+	/* Button Styling for the blue gradient effect */
+.btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 50px;
+    border-radius: 5px;
+    background: transparent;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+}
+
+.btn:hover {
+    transform: translateY(5px);
+}
+
+.light::before {
+    content: "";
+    position: absolute;
+    background-image: conic-gradient(
+        transparent 10deg,
+        rgba(168, 239, 255, 1),
+        90deg,
+        transparent 170deg
+    );
+    width: 200%;
+    height: 500%;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.light:after {
+    content: "Projects"; /* Button text */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    color: #fff;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    border-radius: 5px;
+}
+}
 /
 /* ==========================================================================
 Intro Section
@@ -333,10 +419,10 @@ Swag Section
 }
 
 /* ==========================================================================
-Portfolio Section
-========================================================================== */
+   Portfolio Section
+   ========================================================================== */
 
-.effects {
+   .effects {
     padding-left: 15px;
 }
 
@@ -345,13 +431,17 @@ Portfolio Section
     margin-bottom: 50px;
     z-index: 1;
     overflow: hidden;
+    /* You can adjust the size here if necessary */
 }
 
 .effects .img img {
     display: block;
     margin: 0;
     padding: 0;
-    height: auto;
+    width: calc(100% + 40px) !important; /* Ensures all images match the third photo size */
+    height: auto; /* Maintain aspect ratio */
+    transition: opacity 0.35s, transform 0.35s;
+    transform: translate3d(-40px, 0, 0); /* Maintain original translate */
 }
 
 .overlay {
@@ -376,14 +466,8 @@ Portfolio Section
     opacity: 1;
 }
 
-.img img {
-    width: calc(100% + 40px) !important;
-    transition: opacity 0.35s, transform 0.35s;
-    transform: translate3d(-40px, 0, 0);
-}
-
 .img:hover img {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); /* Apply the hover effect uniformly */
 }
 
 /* ==========================================================================
